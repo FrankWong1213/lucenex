@@ -27,7 +27,7 @@ import org.wltea.analyzer.lucene.IKAnalyzer;
 
 /**
  * @ClassName: IKAnalyzerDemo.java
- * @Description: TODO
+ * @Description: IK 例子
  * @author frankwong
  * @version V1.0
  * @Date Feb 22, 2013 9:49:38 AM

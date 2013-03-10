@@ -8,7 +8,7 @@ import com.frankwong.lucenex.util.MyField;
 
 /**
  * @ClassName:     New.java
- * @Description:   TODO
+ * @Description:   新闻实体类
  * @author         frankwong
  * @version        V1.0  
  * @Date           Feb 27, 2013 2:32:22 PM 
@@ -23,7 +23,6 @@ public class New implements IMyIndex {
 	 */
 	@Override
 	public long getId() {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
@@ -32,7 +31,6 @@ public class New implements IMyIndex {
 	 */
 	@Override
 	public String[] GetStoreFields() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
@@ -41,7 +39,6 @@ public class New implements IMyIndex {
 	 */
 	@Override
 	public String[] GetIndexFields() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
@@ -50,7 +47,6 @@ public class New implements IMyIndex {
 	 */
 	@Override
 	public float GetBoost() {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
@@ -59,7 +55,6 @@ public class New implements IMyIndex {
 	 */
 	@Override
 	public List<MyField> GetFieldList() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
@@ -68,7 +63,6 @@ public class New implements IMyIndex {
 	 */
 	@Override
 	public BeanEnum GetBeanEnum() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 

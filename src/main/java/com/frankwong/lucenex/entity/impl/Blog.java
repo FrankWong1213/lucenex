@@ -13,7 +13,7 @@ import com.frankwong.lucenex.util.MyFieldEnum;
 
 /**
  * @ClassName:     Blog.java
- * @Description:   TODO
+ * @Description:   博客实体类
  * @author         frankwong
  * @version        V1.0  
  * @Date           Feb 27, 2013 10:58:06 AM 
@@ -40,7 +40,6 @@ public class Blog implements IMyIndex {
 	
 	@Override
 	public long getId() {
-		// TODO Auto-generated method stub
 		return id;
 	}
 
@@ -64,7 +63,6 @@ public class Blog implements IMyIndex {
 	 */
 	@Override
 	public String[] GetIndexFields() {
-		// TODO Auto-generated method stub
 		return new String[]{"id","title","content","author"};
 	}
 
@@ -129,7 +127,6 @@ public class Blog implements IMyIndex {
 	 */
 	@Override
 	public float GetBoost() {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
