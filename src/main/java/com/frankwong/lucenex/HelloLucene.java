@@ -19,12 +19,12 @@ import org.apache.lucene.index.DirectoryReader;
 import org.apache.lucene.index.IndexReader;
 import org.apache.lucene.index.IndexWriter;
 import org.apache.lucene.index.IndexWriterConfig;
-import org.apache.lucene.index.IndexWriterConfig.OpenMode;
 import org.apache.lucene.queryparser.classic.ParseException;
 import org.apache.lucene.queryparser.classic.QueryParser;
 import org.apache.lucene.search.IndexSearcher;
 import org.apache.lucene.search.Query;
 import org.apache.lucene.search.ScoreDoc;
+import org.apache.lucene.search.TopDocs;
 import org.apache.lucene.search.TopScoreDocCollector;
 import org.apache.lucene.store.Directory;
 import org.apache.lucene.store.FSDirectory;
@@ -49,12 +49,13 @@ public class HelloLucene {
 		IndexWriter w = new IndexWriter(dir, config);
 		addDoc(w, "网经科技有限公司", "193398817");
 		addDoc(w, "网易科技", "55320055Z");
+		w.commit();
 		addDoc(w, "百度科技公司 Gigabytes", "55063554A");
 		addDoc(w, "The Art of Computer Science", "9900333X");
 		w.close();
 
 		// 2. query
-		String querystr = "网易";
+		String querystr = "科技";
 
 		// the "title" arg specifies the default field to use
 		// when no field is explicitly specified in the query.
@@ -68,8 +69,15 @@ public class HelloLucene {
 		TopScoreDocCollector collector = TopScoreDocCollector.create(
 				hitsPerPage, true);
 		searcher.search(q, collector);
+		System.out.println(collector.getTotalHits());
 		ScoreDoc[] hits = collector.topDocs().scoreDocs;
+		
+		TopScoreDocCollector results = TopScoreDocCollector.create(collector.getTotalHits(), false);
+		searcher.search(q, results);
+		
+		ScoreDoc[] topdocs= results.topDocs(0, 7).scoreDocs;
 
+		System.out.println(topdocs.length);
 		// 4. display results
 		System.out.println("Found " + hits.length + " hits.");
 		for (int i = 0; i < hits.length; ++i) {
