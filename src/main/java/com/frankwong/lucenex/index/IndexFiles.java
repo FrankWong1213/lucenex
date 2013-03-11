@@ -67,6 +67,7 @@ public class IndexFiles {
 				Field.Store.YES);
 		doc.add(beanField);
 		indexWriter.addDocument(doc);
+		indexWriter.commit();
 	}
 
 	/**  
@@ -109,7 +110,7 @@ public class IndexFiles {
 				Field.Store.YES);
 		doc.add(beanField);
 		indexWriter.updateDocument(new Term("id",id+""), doc);
-        indexWriter.close();
+        	indexWriter.commit();
 	}
 
 	/**  
@@ -122,7 +123,7 @@ public class IndexFiles {
 	 */
 	public void deleteDoc(IndexWriter indexWriter, Term term) throws IOException {
 		indexWriter.deleteDocuments(term);
-		indexWriter.close();
+		indexWriter.commit();
 	}
 
 	/**  
@@ -135,7 +136,7 @@ public class IndexFiles {
 	 */
 	public void deleteDoc(IndexWriter indexWriter, Term[] terms) throws IOException {
 		indexWriter.deleteDocuments(terms);
-		indexWriter.close();
+		indexWriter.commit();
 	}
 
 
@@ -149,7 +150,7 @@ public class IndexFiles {
 	 */
 	public void deleteDoc(IndexWriter indexWriter, Query query) throws IOException {
 		indexWriter.deleteDocuments(query);
-		indexWriter.close();
+		indexWriter.commit();
 	}
 
 	/**  
@@ -162,7 +163,7 @@ public class IndexFiles {
 	 */
 	public void deleteDoc(IndexWriter indexWriter, Query[] queries) throws IOException {
 		indexWriter.deleteDocuments(queries);
-		indexWriter.close();
+		indexWriter.commit();
 	}
 	
 	/**  
